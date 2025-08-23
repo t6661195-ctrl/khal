@@ -11,17 +11,26 @@ import {
   Globe, 
   Lock,
   AlertTriangle,
-  CheckCircle
+  CheckCircle,
+  Star,
+  Award,
+  Users,
+  Brain,
+  Radar,
+  Activity
 } from "lucide-react";
+import servicesBackground from "@/assets/services-background.jpg";
 
 const services = [
   {
-    icon: Search,
+    icon: Radar,
     title: "Präzise Schwachstellenprüfungen",
     description: "Unsere spezialisierten Programmier-Teams analysieren Ihre Systeme – von Webanwendungen über komplexe Netzwerke bis hin zu IoT-Ökosystemen – mit datengetriebenen, hochentwickelten Methoden. In sensiblen Bereichen wie Apotheken, Arztpraxen und Krankenhäusern identifizieren wir Schwachstellen, die den Zugriff auf sensible Patientendaten oder die Verfügbarkeit lebenswichtiger Systeme gefährden könnten.",
     features: ["SQL-Injection Scans", "XSS-Angriff Prävention", "APT-Erkennung", "IoT-Sicherheitsanalyse"],
     badge: "Präzise Analyse",
-    color: "success"
+    color: "success",
+    iconColor: "text-success",
+    secondaryIcon: Star
   },
   {
     icon: Shield,
@@ -29,29 +38,43 @@ const services = [
     description: "Durch fortschrittliche Penetrationstests (Black, Gray, White Box), Social Engineering und Red Teaming simulieren wir reale Angriffsszenarien. Für den Gesundheitssektor bedeutet das Schutz vor Ausfällen, die Patientenversorgung beeinträchtigen könnten, wie z. B. bei der Unterbrechung von Medikamentenverschreibungen oder Diagnosesystemen.",
     features: ["Black/Gray/White Box Tests", "Social Engineering", "Red Team Übungen", "Gesundheitssektor-Audits"],
     badge: "Strategisch",
-    color: "primary"
+    color: "primary",
+    iconColor: "text-primary",
+    secondaryIcon: Award
   },
   {
-    icon: Globe,
+    icon: Brain,
     title: "Visionäres Webdesign",
     description: "Erleben Sie eine intuitive Benutzererfahrung mit dynamisch wechselnden Hintergründen, eleganten Buttons und hochwertigen Icons, die Ihre Erwartungen an Professionalität übertreffen.",
     features: ["Dynamische Hintergründe", "Elegante Buttons", "Hochwertige Icons", "Intuitive Navigation"],
     badge: "Visionär",
-    color: "warning"
+    color: "warning",
+    iconColor: "text-warning",
+    secondaryIcon: Users
   },
   {
-    icon: Phone,
+    icon: Activity,
     title: "24/7-Notfall-Response",
     description: "Unsere spezialisierten Teams stehen Ihnen rund um die Uhr bei Sicherheitsvorfällen zur Seite – mit präziser Analyse und schneller, effektiver Lösung, um Ihre Systeme zu schützen, besonders in kritischen Umgebungen wie Krankenhäusern, wo Ausfälle lebensbedrohlich sein können.",
     features: ["Rund um die Uhr", "Präzise Analyse", "Kritische Umgebungen", "Lebensrettende Systeme"],
     badge: "Notfall-Response",
-    color: "accent"
+    color: "accent",
+    iconColor: "text-accent",
+    secondaryIcon: Zap
   }
 ];
 
 const Services = () => {
   return (
-    <section className="py-20 bg-background">
+    <section 
+      className="py-20 relative bg-background"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url(${servicesBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
@@ -67,10 +90,11 @@ const Services = () => {
             <Card key={index} className="bg-gradient-card shadow-cyber hover:shadow-glow transition-all duration-300 group">
               <CardHeader>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="h-8 w-8 text-primary" />
+                  <div className="relative p-4 rounded-xl bg-gradient-to-br from-primary/10 via-accent/5 to-primary/5 group-hover:from-primary/20 group-hover:via-accent/10 group-hover:to-primary/10 transition-all duration-300 shadow-lg">
+                    <service.icon className={`h-12 w-12 ${service.iconColor} group-hover:scale-110 transition-transform duration-300`} />
+                    <service.secondaryIcon className="absolute -top-1 -right-1 h-6 w-6 text-warning bg-background rounded-full p-1 shadow-lg" />
                   </div>
-                  <Badge variant={service.color as any} className="font-semibold">
+                  <Badge variant={service.color as any} className="font-semibold px-3 py-1 shadow-sm">
                     {service.badge}
                   </Badge>
                 </div>

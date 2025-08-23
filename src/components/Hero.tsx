@@ -1,12 +1,20 @@
 import { Button } from "@/components/ui/button";
-import { Shield, Lock, Search, AlertTriangle } from "lucide-react";
+import { Shield, Lock, Search, AlertTriangle, Star, Users, Award, Zap } from "lucide-react";
 import DynamicBackground from "./DynamicBackground";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const Hero = () => {
   return (
-    <DynamicBackground className="min-h-screen">
-      <section className="relative min-h-screen overflow-hidden">
-
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Hero Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.9)), url(${heroBackground})`,
+        }}
+      />
+      
+      <DynamicBackground className="relative z-10">
         {/* Main content */}
         <div className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
@@ -44,30 +52,45 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Trust indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-            <div className="text-center">
-              <Shield className="h-12 w-12 text-accent mx-auto mb-2" />
-              <p className="text-primary-foreground/80 font-semibold">Spezialisierte Teams</p>
+          {/* Trust indicators with enhanced icons */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="text-center group">
+              <div className="relative">
+                <Shield className="h-16 w-16 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <Star className="absolute -top-1 -right-1 h-6 w-6 text-warning" />
+              </div>
+              <p className="text-primary-foreground/90 font-bold text-lg">Spezialisierte Teams</p>
+              <p className="text-primary-foreground/70 text-sm mt-1">Expert Cybersecurity</p>
             </div>
-            <div className="text-center">
-              <Lock className="h-12 w-12 text-primary-glow mx-auto mb-2" />
-              <p className="text-primary-foreground/80 font-semibold">DSGVO Konform</p>
+            <div className="text-center group">
+              <div className="relative">
+                <Lock className="h-16 w-16 text-primary-glow mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <Award className="absolute -top-1 -right-1 h-6 w-6 text-success" />
+              </div>
+              <p className="text-primary-foreground/90 font-bold text-lg">DSGVO Konform</p>
+              <p className="text-primary-foreground/70 text-sm mt-1">Datenschutz garantiert</p>
             </div>
-            <div className="text-center">
-              <AlertTriangle className="h-12 w-12 text-warning mx-auto mb-2" />
-              <p className="text-primary-foreground/80 font-semibold">24/7 Support</p>
+            <div className="text-center group">
+              <div className="relative">
+                <Zap className="h-16 w-16 text-warning mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <Users className="absolute -top-1 -right-1 h-6 w-6 text-accent" />
+              </div>
+              <p className="text-primary-foreground/90 font-bold text-lg">24/7 Support</p>
+              <p className="text-primary-foreground/70 text-sm mt-1">Immer verfügbar</p>
             </div>
-            <div className="text-center">
-              <Search className="h-12 w-12 text-success mx-auto mb-2" />
-              <p className="text-primary-foreground/80 font-semibold">Gesundheitssektor</p>
+            <div className="text-center group">
+              <div className="relative">
+                <Search className="h-16 w-16 text-success mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <AlertTriangle className="absolute -top-1 -right-1 h-6 w-6 text-destructive" />
+              </div>
+              <p className="text-primary-foreground/90 font-bold text-lg">Gesundheitssektor</p>
+              <p className="text-primary-foreground/70 text-sm mt-1">Medizin-Expertise</p>
             </div>
           </div>
         </div>
-      </div>
-
-      </section>
-    </DynamicBackground>
+        </div>
+      </DynamicBackground>
+    </section>
   );
 };
 

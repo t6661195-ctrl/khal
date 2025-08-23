@@ -1,40 +1,44 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Menu, X } from "lucide-react";
+import { Shield, Menu, X, Star, Zap, Users, Phone } from "lucide-react";
 import { useState } from "react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Dienstleistungen", href: "#services" },
-    { name: "Über uns", href: "#about" },
-    { name: "Kontakt", href: "#contact" },
-    { name: "Blog", href: "#blog" },
+    { name: "Dienstleistungen", href: "#services", icon: Star },
+    { name: "Über uns", href: "#about", icon: Users },
+    { name: "Kontakt", href: "#contact", icon: Phone },
+    { name: "Blog", href: "#blog", icon: Zap },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md border-b border-primary-foreground/10">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Enhanced Logo */}
           <div className="flex items-center space-x-3">
-            <Shield className="h-8 w-8 text-accent" />
+            <div className="relative">
+              <Shield className="h-10 w-10 text-accent animate-pulse" />
+              <Zap className="absolute -top-1 -right-1 h-4 w-4 text-warning" />
+            </div>
             <div>
-              <span className="text-primary-foreground font-bold text-lg">GapProtection</span>
-              <Badge variant="accent" className="ml-2 text-xs">Security</Badge>
+              <span className="text-primary-foreground font-bold text-xl tracking-tight">GapProtection</span>
+              <Badge variant="accent" className="ml-2 text-xs font-semibold shadow-glow">Security Pro</Badge>
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Enhanced Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-primary-foreground/80 hover:text-primary-foreground transition-colors font-medium"
+                className="flex items-center space-x-2 text-primary-foreground/80 hover:text-primary-foreground transition-all duration-300 font-medium group px-3 py-2 rounded-lg hover:bg-primary-foreground/10"
               >
-                {item.name}
+                <item.icon className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                <span>{item.name}</span>
               </a>
             ))}
           </nav>

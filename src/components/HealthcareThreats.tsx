@@ -9,8 +9,13 @@ import {
   Activity,
   Pill,
   Stethoscope,
-  Building2
+  Building2,
+  Shield,
+  Zap,
+  Target
 } from "lucide-react";
+import healthcareThreatsImage from "@/assets/healthcare-threats.jpg";
+import medicalSecurityIcon from "@/assets/medical-security-icon.jpg";
 
 const healthcareThreats = [
   {
@@ -71,11 +76,27 @@ const healthcareThreats = [
 
 const HealthcareThreats = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-muted/30">
+    <section 
+      className="py-20 relative"
+      style={{
+        backgroundImage: `linear-gradient(rgba(248, 250, 252, 0.95), rgba(248, 250, 252, 0.95)), url(${healthcareThreatsImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="flex justify-center mb-4">
-            <Heart className="w-12 h-12 text-destructive" />
+          {/* Enhanced header with medical security icon */}
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <img 
+                src={medicalSecurityIcon} 
+                alt="Medical Security" 
+                className="w-24 h-24 rounded-2xl shadow-glow"
+              />
+              <Shield className="absolute -top-2 -right-2 w-8 h-8 text-primary bg-background rounded-full p-1 shadow-lg" />
+            </div>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Gesundheitssektor im Fadenkreuz
@@ -88,13 +109,14 @@ const HealthcareThreats = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {healthcareThreats.map((threat, index) => (
-            <Card key={index} className="bg-gradient-card shadow-cyber hover:shadow-glow transition-all duration-500 group border-l-4 border-l-primary/20 hover:border-l-primary">
+            <Card key={index} className="bg-gradient-card shadow-cyber hover:shadow-glow transition-all duration-500 group border-l-4 border-l-primary/20 hover:border-l-primary backdrop-blur-sm">
               <CardHeader>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    <threat.icon className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
+                  <div className="relative p-4 rounded-xl bg-gradient-to-br from-primary/10 via-accent/5 to-primary/5 group-hover:from-primary/20 group-hover:via-accent/10 group-hover:to-primary/10 transition-all duration-300 shadow-lg">
+                    <threat.icon className="h-10 w-10 text-primary group-hover:scale-110 transition-transform duration-300" />
+                    <Target className="absolute -top-1 -right-1 h-5 w-5 text-destructive bg-background rounded-full p-0.5 shadow-lg" />
                   </div>
-                  <Badge variant={threat.color as any} className="font-semibold">
+                  <Badge variant={threat.color as any} className="font-semibold px-3 py-1 shadow-sm">
                     {threat.risk}
                   </Badge>
                 </div>
@@ -130,12 +152,15 @@ const HealthcareThreats = () => {
         </div>
 
         <div className="text-center mt-16">
-          <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-6 max-w-4xl mx-auto">
-            <AlertTriangle className="w-8 h-8 text-destructive mx-auto mb-4" />
+          <div className="bg-gradient-to-r from-destructive/10 via-warning/5 to-destructive/10 border border-destructive/20 rounded-2xl p-8 max-w-4xl mx-auto backdrop-blur-sm shadow-glow">
+            <div className="relative flex justify-center mb-6">
+              <AlertTriangle className="w-12 h-12 text-destructive animate-pulse" />
+              <Zap className="absolute -top-1 -right-1 w-6 h-6 text-warning" />
+            </div>
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Jede Minute ohne Schutz ist eine Minute zu viel
             </h3>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed text-lg">
               Im Gesundheitswesen können Cyberangriffe nicht nur Daten stehlen - sie können Leben kosten. 
               Wenn Operationssysteme ausfallen, Medikamentenverschreibungen manipuliert werden oder 
               Notaufnahmen offline gehen, stehen Menschenleben auf dem Spiel.
