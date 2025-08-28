@@ -102,7 +102,7 @@ const Contact = () => {
               </div>
               <div className="flex items-center text-primary-foreground/90">
                 <CheckCircle className="mr-3 h-5 w-5 text-success" />
-                <span>24/7 Notfall-Response</span>
+                <span>Effektive Cybersicherheit</span>
               </div>
               <div className="flex items-center text-primary-foreground/90">
                 <CheckCircle className="mr-3 h-5 w-5 text-success" />

@@ -41,26 +41,6 @@ const services = [
     color: "primary",
     iconColor: "text-primary",
     secondaryIcon: Award
-  },
-  {
-    icon: Brain,
-    title: "Visionäres Webdesign",
-    description: "Erleben Sie eine intuitive Benutzererfahrung mit dynamisch wechselnden Hintergründen, eleganten Buttons und hochwertigen Icons, die Ihre Erwartungen an Professionalität übertreffen.",
-    features: ["Dynamische Hintergründe", "Elegante Buttons", "Hochwertige Icons", "Intuitive Navigation"],
-    badge: "Visionär",
-    color: "warning",
-    iconColor: "text-warning",
-    secondaryIcon: Users
-  },
-  {
-    icon: Activity,
-    title: "24/7-Notfall-Response",
-    description: "Unsere spezialisierten Teams stehen Ihnen rund um die Uhr bei Sicherheitsvorfällen zur Seite – mit präziser Analyse und schneller, effektiver Lösung, um Ihre Systeme zu schützen, besonders in kritischen Umgebungen wie Krankenhäusern, wo Ausfälle lebensbedrohlich sein können.",
-    features: ["Rund um die Uhr", "Präzise Analyse", "Kritische Umgebungen", "Lebensrettende Systeme"],
-    badge: "Notfall-Response",
-    color: "accent",
-    iconColor: "text-accent",
-    secondaryIcon: Zap
   }
 ];
 
